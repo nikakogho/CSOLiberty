@@ -46,7 +46,9 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\main-tabs\main-tabs.component.ts" />
-    <None Remove="SQL\SellerBossTrigger.sql" />
+    <None Remove="SQL\OrderDepthTrigger.sql" />
+    <None Remove="SQL\SellerCycleTrigger.sql" />
+    <None Remove="SQL\SellerOwnBossTrigger.sql" />
   </ItemGroup>
 
   <ItemGroup>

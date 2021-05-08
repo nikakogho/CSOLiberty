@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSOLiberty.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210508052908_AddedOrderTrigger")]
-    partial class AddedOrderTrigger
+    [Migration("20210508070451_setup")]
+    partial class setup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

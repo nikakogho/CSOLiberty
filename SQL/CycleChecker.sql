@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION CYCLE_CHECKER(@sellerId int) RETURNS int
+﻿CREATE OR ALTER FUNCTION CYCLE_CHECKER(@sellerId int) RETURNS int
 AS
 BEGIN
 	declare @bossId int;
@@ -10,9 +10,15 @@ BEGIN
 
 	set @nextBossId = (select seller_boss_id from sellers where seller_id = @bossId);
 
+	declare @countdown int;
+
+	set @countdown = (select count(*) from sellers) + 1;
+
 	while @nextBossId != @bossId
 	BEGIN
-		if @nextBossId = @sellerId RETURN 1
+		if @countdown < 0 RETURN 1;
+		set @countdown = @countdown - 1;
+		if @nextBossId = @sellerId RETURN 1;
 		set @bossId = @nextBossId;
 		set @nextBossId = (select seller_boss_id from sellers where seller_id = @bossId);
 	END
