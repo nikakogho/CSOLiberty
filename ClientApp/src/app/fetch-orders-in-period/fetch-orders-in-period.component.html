@@ -1,0 +1,27 @@
+<h1 id="tableLabel">Last Order In Period</h1>
+
+<p>This page gives the last order in given period</p>
+
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <label [for]="startPicker">Start Date</label>
+    <input matInput [(ngModel)]="startDate" name="startDate" [matDatepicker]="startPicker" required />
+    <mat-datepicker-toggle [for]="startPicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker placeholder="Pick start date" #startPicker></mat-datepicker>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <label [for]="endPicker">End Date</label>
+    <input matInput [(ngModel)]="endDate" name="endDate" [matDatepicker]="endPicker" required />
+    <mat-datepicker-toggle [for]="endPicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #endPicker></mat-datepicker>
+  </mat-form-field>
+  <br />
+  <button type="submit" value="Submit"></button>
+</form>
+
+<p *ngIf="loading"><em>Loading...</em></p>
+
+<p *ngIf="!loading && order"><em>ID: {{order.id}}, Cost: ${{order.money}}</em></p>
+
+<p *ngIf="!order">No order right now</p>

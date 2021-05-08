@@ -1,0 +1,28 @@
+<h1 id="tableLabel">Orders</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!loading && !orders">
+  <button (click)="load()">Load Orders</button>
+</p>
+
+<p *ngIf="loading"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="orders">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th># of parts</th>
+      <th>Date</th>
+      <th>Total Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.id }}</td>
+      <td>{{ order.parts }}</td>
+      <td>{{ order.date }}</td>
+      <td>{{ order.money }}</td>
+    </tr>
+  </tbody>
+</table>
