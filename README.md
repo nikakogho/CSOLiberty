@@ -2,7 +2,7 @@
 
 ## Database consists of **Clients**, **Sellers** and **Orders**
     Clients stores id, first name, and last name of each client
-    Sellers stores id, first name, last name, and if of the boss of each seller
+    Sellers stores id, first name, last name, and id of the boss of each seller
     Orders stores id, client id, seller id, cost and date of each order
 
 ## Website consists of a single page that has a tab control with 3 sides: 
