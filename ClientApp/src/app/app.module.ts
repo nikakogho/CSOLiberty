@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component'
-import { NavMenuComponent } from './nav-menu/nav-menu.component'
 
 import { FetchOrdersComponent } from './fetch-orders/fetch-orders.component'
 import { FetchOrdersInPeriodComponent } from './fetch-orders-in-period/fetch-orders-in-period.component'
 import { FetchSellersComponent } from './fetch-sellers/fetch-sellers.component'
+
+import { MainTabsComponent } from './main-tabs/main-tabs.component'
 
 //import { NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker'
 
@@ -20,6 +21,7 @@ import { MatInputModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const matModules: any[] = [
   FormsModule,
@@ -28,24 +30,23 @@ const matModules: any[] = [
   MatNativeDateModule,
   MatInputModule,
   MatTreeModule,
-  MatIconModule
+  MatIconModule,
+  MatTabsModule
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     FetchOrdersComponent,
     FetchSellersComponent,
-    FetchOrdersInPeriodComponent
+    FetchOrdersInPeriodComponent,
+    MainTabsComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     RouterModule.forRoot([
-    { path: 'orders', component: FetchOrdersComponent, pathMatch: 'full' },
-    { path: 'orders/period', component: FetchOrdersInPeriodComponent },
-    { path: 'sellers', component: FetchSellersComponent },
+      { path: '', component: MainTabsComponent, pathMatch: 'full' }
     ]),
     HttpClientModule,
     ...matModules],

@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 export class FetchOrdersInPeriodComponent {
   public order: Order | null;
   public loading: boolean
+  public loaded: boolean
   private loader: (url: string) => Subscription
   private baseUrl: string
 
@@ -20,9 +21,11 @@ export class FetchOrdersInPeriodComponent {
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl
     this.loading = false
+    this.loaded = false
     this.loader = (url: string) => http.get<Order[]>(url).subscribe(result => {
       this.order = result.length > 0 ? result[0] : null
       this.loading = false
+      this.loaded = true
     }, error => console.error(error));
   }
 
@@ -69,6 +72,9 @@ export class FetchOrdersInPeriodComponent {
   onSubmit() {
     //console.log(this.dateToYdm(this.startDate))
     //console.log(this.dateToYdm(this.startDate))
+
+    if (!this.startDate || !this.endDate) return;
+
     this.load();
   }
 }

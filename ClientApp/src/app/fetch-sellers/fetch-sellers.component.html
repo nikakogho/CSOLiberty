@@ -3,8 +3,8 @@
 <mat-tree *ngIf="!loading" [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
     <li class="mat-tree-node">
-      <!-- use a disabled button to provide padding for tree leaf -->
-      <button mat-icon-button disabled></button>
+      <!-- use a disabled button to provide padding for tree leaf
+  <button class="btn btn-info" mat-icon-button disabled>-</button>-->
       {{node.name}}
     </li>
   </mat-tree-node>

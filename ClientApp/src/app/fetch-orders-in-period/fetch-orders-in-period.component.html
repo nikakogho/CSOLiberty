@@ -17,11 +17,11 @@
     <mat-datepicker #endPicker></mat-datepicker>
   </mat-form-field>
   <br />
-  <button type="submit" value="Submit"></button>
+  <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
 <p *ngIf="loading"><em>Loading...</em></p>
 
 <p *ngIf="!loading && order"><em>ID: {{order.id}}, Cost: ${{order.money}}</em></p>
 
-<p *ngIf="!order">No order right now</p>
+<p *ngIf="loaded && !order">No order in given range</p>
