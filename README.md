@@ -1,6 +1,9 @@
 # A simple use of [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five) with [Angular 8](https://indepth.dev/posts/1076/whats-new-after-angular-8)
 
 ## Database consists of **Clients**, **Sellers** and **Orders**
+    - **Clients** stores id, first name, and last name of each client
+    - **Sellers** stores id, first name, last name, and if of the boss of each seller
+    - **Orders** stores id, client id, seller id, cost and date of each order
 
 ## Website consists of a single page that has a tab control with 3 sides: 
     1. For showing a table of orders
