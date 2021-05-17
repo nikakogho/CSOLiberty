@@ -27,7 +27,7 @@ namespace CSOLiberty.Controllers
             {
                 id = o.ID,
                 parts = o.Children.Count + 1,
-                date = o.LastDate.ToString().Substring(0, 10),
+                date = o.LastDate.ToString().Split(' ')[0],
                 money = o.TotalAmount
             };
         }
@@ -35,9 +35,7 @@ namespace CSOLiberty.Controllers
         [HttpGet]
         public IEnumerable Get()
         {
-            var orders = _context.Orders;
-
-            var mainOrders = orders.Where(o => o.ParentID == null);
+            var mainOrders = _context.Orders.Where(o => o.ParentID == null).ToList();
 
             var jsonEnumerable = mainOrders.Select(OrderToJson);
             
@@ -47,7 +45,7 @@ namespace CSOLiberty.Controllers
         [HttpGet("period")]
         public IEnumerable GetInPeriod(DateTime start, DateTime end)
         {
-            var orders = _context.Orders.Where(o => o.ParentID == null && o.Date <= end).AsEnumerable();
+            var orders = _context.Orders.Where(o => o.ParentID == null && o.Date <= end).ToList();
             var ordersEnum = orders.Where(o => o.IsMain && o.LastDate >= start && o.LastDate <= end);
 
             var order = ordersEnum.OrderByDescending(o => o.LastDate).FirstOrDefault();

@@ -1,5 +1,7 @@
 # A simple use of [.NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five) with [Angular 8](https://indepth.dev/posts/1076/whats-new-after-angular-8)
 
+## View the website [here](https://csoliberty20210516163403.azurewebsites.net/)
+
 ## Database consists of **Clients**, **Sellers** and **Orders**
     Clients stores id, first name, and last name of each client
     Sellers stores id, first name, last name, and id of the boss of each seller
